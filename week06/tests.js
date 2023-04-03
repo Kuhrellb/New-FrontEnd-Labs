@@ -60,5 +60,134 @@ describe('Week 6 Lab Tests:', () => {
       })
     })
   })
+  describe('1.A :Sorted arrof of Numbers', () => {
+    it( 'Should sort an arry in ascending order', ( ) =>{
+      const arrayOfNumbers = [1, 5, 3, 2, 4]
+      arrayOfNumbers.sort((a, b) => a - b)
+
+      expect(arrayOfNumbers).to.deep.equal([1,2,3,4,5])
+    }) 
+  
+  })
+  describe('1.B : Manage Wallet', () => {
+    class Wallet {
+      constructor(startingMoney) {
+        this.money = startingMoney
+      }
+    
+      addMoney(amount) {
+        this.money += amount
+      }
+      removeMoney(amount) {
+        this.money -= amount
+      }
+     
+    }
+    
+  it('#Should be able to remove money to my wallet',() =>{
+    const myWallet = new Wallet(50)
+    myWallet.removeMoney(25)
+    expect(myWallet.money).to.equal(25)
+  })
+  it('#Should be able to remove money to my wallet',() =>{
+    const myWallet = new Wallet(50)
+    myWallet.addMoney(25)
+    expect(myWallet.money).to.equal(75)
+  
+  })
+})
+describe('1.C. Select a day of the week', () => {
+  const dayOfTheWeek = (num) => {
+    switch (num) {
+      case 1:
+         return 'Monday'
+          break
+      case 2:
+         return 'Tuesday'
+          break
+      case 3:
+         return 'Wednesday'
+          break
+      case 4:
+         return 'Thursday'
+          break
+      case 5:
+         return 'Friday'
+          break
+      case 6:
+         return 'Saturday'
+          break
+      case 7:
+         return 'Sunday'
+          break
+      default:
+        return 'Err. Something went wrong.'
+    }
+  }
+  it('#Should return Monday with input 1',() =>{
+    
+    expect(dayOfTheWeek(1)).to.equal('Monday')
+})
+  it('#Should return Wednesday with input 3',() =>{
+    
+  expect(dayOfTheWeek(3)).to.equal('Wednesday')
+})
+it('#Should return Err. Something went wrong. with input 10',() =>{
+    
+  expect(dayOfTheWeek(0)).to.equal('Err. Something went wrong.')
+})
+describe('1.D Allow Wizards to pass', ()=>{
+  console.log(`1d: Only wizards shall pass!`)
+
+const movieCharacters = [
+  {
+    name: 'Howl',
+    isAWizard: true,
+    quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+  },
+  {
+     name: 'Kalcifer',
+     isAWizard: false,
+     quote: `I don't cook! I'm a scary and powerful fire demon!`,
+   },
+   {
+     name: 'Gandalf',
+     isAWizard: true,
+     quote: `You shall not pass!`,
+   },
+   {
+     name: 'Luke Skywalker',
+     isAWizard: false,
+     quote: `May the Force be with you.`,
+   },
+ ]
+
+function onlyWizards(arrayOfCharacters) {
+  return arrayOfCharacters.filter((character) => character.isAWizard == true)
+}
+
+it("#Should return an array of objects... object.isAWizard should be true", () => {
+  expect(onlyWizards(movieCharacters)).to.deep.equal([{
+    name: 'Howl',
+    isAWizard: true,
+    quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+  }, {
+    name: 'Gandalf',
+    isAWizard: true,
+    quote: `You shall not pass!`,
+  },])
+  onlyWizards(movieCharacters)
+
+})
+
+for (let character of onlyWizards(movieCharacters)) {
+  it('#Each Character Should be a wizard', () =>{
+    expect(character.isAWizard).to.equal(true)
+  })
+}
+
+
+})
+})
   /*--------------------------NEW TESTS BELOW-------------------------------*/
 })
